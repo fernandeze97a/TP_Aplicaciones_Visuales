@@ -1,6 +1,6 @@
-﻿namespace Login
+﻿namespace TP_Aplicaciones_Visuales
 {
-    partial class login
+    partial class frmLogin
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -89,7 +89,7 @@
             this.lblUsuario.TabIndex = 6;
             this.lblUsuario.Text = "Usuario:";
             // 
-            // login
+            // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -104,7 +104,7 @@
             this.MaximumSize = new System.Drawing.Size(347, 212);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(347, 212);
-            this.Name = "login";
+            this.Name = "frmLogin";
             this.Text = "LOGIN";
             this.ResumeLayout(false);
             this.PerformLayout();

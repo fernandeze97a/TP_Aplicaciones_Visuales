@@ -9,11 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Login
+namespace TP_Aplicaciones_Visuales
 {
-    public partial class login : Form
+    public partial class frmLogin : Form
     {
-        public login()
+        public frmLogin()
         {
             InitializeComponent();
         }
