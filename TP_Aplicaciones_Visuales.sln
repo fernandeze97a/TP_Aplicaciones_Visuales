@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login", "Login\Login.csproj", "{78BBFC87-FC6D-47C1-B81C-504973B9179D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP_Aplicaciones_Visuales", "Login\TP_Aplicaciones_Visuales.csproj", "{78BBFC87-FC6D-47C1-B81C-504973B9179D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

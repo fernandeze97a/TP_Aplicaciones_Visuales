@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Login.Properties
+namespace TP_Aplicaciones_Visuales.Properties
 {
 
 

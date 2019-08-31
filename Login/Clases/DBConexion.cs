@@ -5,22 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
-namespace Login
+namespace TP_Aplicaciones_Visuales
 {
-    class DBHelper
+    class DBConexion
     {
         private string string_conexion;
-        private static DBHelper instance;
+        private static DBConexion instance;
 
-        private DBHelper()
+        private DBConexion()
         {
             string_conexion = "Data Source=DESKTOP-IQCE3H1\\SQLEXPRESS;Initial Catalog=biblioteca;Integrated Security=True";
         }
 
-        public static DBHelper GetDBHelper()
+        public static DBConexion GetDBHelper()
         {
             if (instance == null)
-                instance = new DBHelper();
+                instance = new DBConexion();
             return instance;
         }
 
