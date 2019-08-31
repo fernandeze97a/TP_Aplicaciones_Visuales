@@ -67,7 +67,7 @@ namespace TP_Aplicaciones_Visuales
                                                    "  WHERE Usuario =  '", pUsuario, "'");
 
                 //Usando el método GetDBHelper obtenemos la instancia unica de DBHelper (Patrón Singleton) y ejecutamos el método ConsultaSQL()
-                DataTable resultado = DBHelper.GetDBHelper().ConsultaSQL(consultaSql);
+                DataTable resultado = DBConexion.GetDBConexion().ConsultaSQL(consultaSql);
 
                 // Validamos que el resultado tenga al menos una fila.
                 if (resultado.Rows.Count >= 1)

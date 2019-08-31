@@ -17,7 +17,7 @@ namespace TP_Aplicaciones_Visuales
             string_conexion = "Data Source=DESKTOP-IQCE3H1\\SQLEXPRESS;Initial Catalog=biblioteca;Integrated Security=True";
         }
 
-        public static DBConexion GetDBHelper()
+        public static DBConexion GetDBConexion()
         {
             if (instance == null)
                 instance = new DBConexion();

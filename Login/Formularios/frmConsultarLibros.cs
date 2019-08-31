@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Login.Formularios
+namespace TP_Aplicaciones_Visuales.Formularios
 {
-    public partial class ConsultarLibros : Form
+    public partial class frmConsultarLibros : Form
     {
-        public ConsultarLibros()
+        public frmConsultarLibros()
         {
             InitializeComponent();
+        }
+
+        private void ConsultarLibros_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

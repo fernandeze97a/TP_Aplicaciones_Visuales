@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TP_Aplicaciones_Visuales.Formularios;
 
 namespace TP_Aplicaciones_Visuales
 {
@@ -16,7 +17,7 @@ namespace TP_Aplicaciones_Visuales
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            Application.Run(new frmPrincipal());
         }
     }
 }
