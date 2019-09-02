@@ -94,5 +94,10 @@ namespace TP_Aplicaciones_Visuales
         {
             Environment.Exit(0);
         }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

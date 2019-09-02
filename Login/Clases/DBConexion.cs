@@ -14,7 +14,7 @@ namespace TP_Aplicaciones_Visuales
 
         private DBConexion()
         {
-            string_conexion = "Data Source=DESKTOP-IQCE3H1\\SQLEXPRESS;Initial Catalog=biblioteca;Integrated Security=True";
+            string_conexion = "Data Source=localhost;Initial Catalog=biblioteca;Integrated Security=True";
         }
 
         public static DBConexion GetDBConexion()

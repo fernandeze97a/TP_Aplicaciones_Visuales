@@ -21,7 +21,10 @@ namespace TP_Aplicaciones_Visuales.Formularios
         {
             this.WindowState = FormWindowState.Maximized;
             frmLogin login = new frmLogin();
+        
             login.ShowDialog();
+        
+            login.Dispose();
         }
 
         private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
@@ -32,5 +35,13 @@ namespace TP_Aplicaciones_Visuales.Formularios
                 e.Cancel = true;
         }
 
+        private void ConsultarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            frmConsultarLibros frmLibros = new frmConsultarLibros();
+            frmLibros.ShowDialog();
+            this.Visible = true;
+            frmLibros.Dispose();
+        }
     }
 }

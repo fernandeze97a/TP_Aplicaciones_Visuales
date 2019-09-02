@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\DBConexion.cs" />
+    <Compile Include="Clases\Libro.cs" />
     <Compile Include="Formularios\frmConsultarLibros.cs">
       <SubType>Form</SubType>
     </Compile>
