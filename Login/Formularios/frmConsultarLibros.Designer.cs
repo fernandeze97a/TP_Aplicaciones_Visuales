@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.grdLibros = new System.Windows.Forms.DataGridView();
-            this.lblID = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.txtAño = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTitulo = new System.Windows.Forms.TextBox();
@@ -42,46 +40,35 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtSector = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.cboPerfil = new System.Windows.Forms.ComboBox();
+            this.cboGenero = new System.Windows.Forms.ComboBox();
             this.cboAutor = new System.Windows.Forms.ComboBox();
             this.cboEditorial = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnGrabar = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdLibros)).BeginInit();
             this.SuspendLayout();
             // 
             // grdLibros
             // 
+            this.grdLibros.AllowUserToAddRows = false;
+            this.grdLibros.AllowUserToDeleteRows = false;
             this.grdLibros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdLibros.Location = new System.Drawing.Point(74, 208);
+            this.grdLibros.Location = new System.Drawing.Point(24, 219);
             this.grdLibros.Name = "grdLibros";
-            this.grdLibros.Size = new System.Drawing.Size(675, 150);
+            this.grdLibros.ReadOnly = true;
+            this.grdLibros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdLibros.Size = new System.Drawing.Size(752, 150);
             this.grdLibros.TabIndex = 0;
-            // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(71, 36);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(18, 13);
-            this.lblID.TabIndex = 2;
-            this.lblID.Text = "ID";
-            // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(195, 29);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(122, 20);
-            this.txtId.TabIndex = 3;
+            this.grdLibros.SelectionChanged += new System.EventHandler(this.GrdLibros_SelectionChanged);
             // 
             // txtAño
             // 
-            this.txtAño.Location = new System.Drawing.Point(195, 97);
+            this.txtAño.Location = new System.Drawing.Point(217, 64);
             this.txtAño.Name = "txtAño";
             this.txtAño.Size = new System.Drawing.Size(122, 20);
             this.txtAño.TabIndex = 5;
@@ -89,7 +76,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(71, 104);
+            this.label2.Location = new System.Drawing.Point(93, 71);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(26, 13);
             this.label2.TabIndex = 4;
@@ -97,7 +84,7 @@
             // 
             // txtTitulo
             // 
-            this.txtTitulo.Location = new System.Drawing.Point(195, 62);
+            this.txtTitulo.Location = new System.Drawing.Point(217, 29);
             this.txtTitulo.Name = "txtTitulo";
             this.txtTitulo.Size = new System.Drawing.Size(122, 20);
             this.txtTitulo.TabIndex = 17;
@@ -105,7 +92,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(71, 69);
+            this.label8.Location = new System.Drawing.Point(93, 36);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(33, 13);
             this.label8.TabIndex = 16;
@@ -140,7 +127,7 @@
             // 
             // txtEstante
             // 
-            this.txtEstante.Location = new System.Drawing.Point(195, 166);
+            this.txtEstante.Location = new System.Drawing.Point(217, 133);
             this.txtEstante.Name = "txtEstante";
             this.txtEstante.Size = new System.Drawing.Size(122, 20);
             this.txtEstante.TabIndex = 29;
@@ -148,7 +135,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(71, 173);
+            this.label1.Location = new System.Drawing.Point(93, 140);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 28;
@@ -156,7 +143,7 @@
             // 
             // txtSector
             // 
-            this.txtSector.Location = new System.Drawing.Point(195, 133);
+            this.txtSector.Location = new System.Drawing.Point(217, 100);
             this.txtSector.Name = "txtSector";
             this.txtSector.Size = new System.Drawing.Size(122, 20);
             this.txtSector.TabIndex = 25;
@@ -164,19 +151,19 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(71, 140);
+            this.label7.Location = new System.Drawing.Point(93, 107);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(38, 13);
             this.label7.TabIndex = 24;
             this.label7.Text = "Sector";
             // 
-            // cboPerfil
+            // cboGenero
             // 
-            this.cboPerfil.FormattingEnabled = true;
-            this.cboPerfil.Location = new System.Drawing.Point(539, 28);
-            this.cboPerfil.Name = "cboPerfil";
-            this.cboPerfil.Size = new System.Drawing.Size(121, 21);
-            this.cboPerfil.TabIndex = 30;
+            this.cboGenero.FormattingEnabled = true;
+            this.cboGenero.Location = new System.Drawing.Point(539, 28);
+            this.cboGenero.Name = "cboGenero";
+            this.cboGenero.Size = new System.Drawing.Size(121, 21);
+            this.cboGenero.TabIndex = 30;
             // 
             // cboAutor
             // 
@@ -194,77 +181,81 @@
             this.cboEditorial.Size = new System.Drawing.Size(121, 21);
             this.cboEditorial.TabIndex = 32;
             // 
-            // button1
+            // btnNuevo
             // 
-            this.button1.Location = new System.Drawing.Point(96, 387);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(61, 51);
-            this.button1.TabIndex = 33;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnNuevo.Location = new System.Drawing.Point(70, 387);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(61, 51);
+            this.btnNuevo.TabIndex = 33;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
             // 
-            // button2
+            // btnEditar
             // 
-            this.button2.Location = new System.Drawing.Point(173, 387);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(61, 51);
-            this.button2.TabIndex = 34;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnEditar.Location = new System.Drawing.Point(160, 387);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(61, 51);
+            this.btnEditar.TabIndex = 34;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnBorrar
             // 
-            this.button3.Location = new System.Drawing.Point(250, 387);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(61, 51);
-            this.button3.TabIndex = 35;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnBorrar.Location = new System.Drawing.Point(250, 387);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(61, 51);
+            this.btnBorrar.TabIndex = 35;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // btnSalir
             // 
-            this.button7.Location = new System.Drawing.Point(700, 387);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(61, 51);
-            this.button7.TabIndex = 41;
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnSalir.Location = new System.Drawing.Point(697, 387);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(61, 51);
+            this.btnSalir.TabIndex = 40;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // btnCancelar
             // 
-            this.button8.Location = new System.Drawing.Point(623, 387);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(61, 51);
-            this.button8.TabIndex = 40;
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnCancelar.Location = new System.Drawing.Point(608, 387);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(61, 51);
+            this.btnCancelar.TabIndex = 39;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // btnGrabar
             // 
-            this.button9.Location = new System.Drawing.Point(546, 387);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(61, 51);
-            this.button9.TabIndex = 39;
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnGrabar.Location = new System.Drawing.Point(442, 387);
+            this.btnGrabar.Name = "btnGrabar";
+            this.btnGrabar.Size = new System.Drawing.Size(61, 51);
+            this.btnGrabar.TabIndex = 42;
+            this.btnGrabar.Text = "Grabar";
+            this.btnGrabar.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // dataGridViewTextBoxColumn1
             // 
-            this.button4.Location = new System.Drawing.Point(326, 387);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(61, 51);
-            this.button4.TabIndex = 42;
-            this.button4.UseVisualStyleBackColor = true;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Tag";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Tag";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // frmConsultarLibros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(822, 450);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(828, 450);
+            this.Controls.Add(this.btnGrabar);
+            this.Controls.Add(this.btnSalir);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnBorrar);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.cboEditorial);
             this.Controls.Add(this.cboAutor);
-            this.Controls.Add(this.cboPerfil);
+            this.Controls.Add(this.cboGenero);
             this.Controls.Add(this.txtEstante);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSector);
@@ -276,8 +267,6 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtAño);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtId);
-            this.Controls.Add(this.lblID);
             this.Controls.Add(this.grdLibros);
             this.Name = "frmConsultarLibros";
             this.Text = "Libros";
@@ -291,8 +280,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView grdLibros;
-        private System.Windows.Forms.Label lblID;
-        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.TextBox txtAño;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtTitulo;
@@ -304,15 +291,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSector;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cboPerfil;
+        private System.Windows.Forms.ComboBox cboGenero;
         private System.Windows.Forms.ComboBox cboAutor;
         private System.Windows.Forms.ComboBox cboEditorial;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnGrabar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
     }
 }

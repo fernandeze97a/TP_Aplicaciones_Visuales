@@ -1,29 +1,47 @@
 create database biblioteca;
 use [biblioteca];
 
+create table Permisos(
+
+	idPermisos INT NOT NULL IDENTITY(1,1),
+	codigo INT not null,
+    descripcion varchar(80) not null,
+    primary key(idPermisos),
+);
+
+create table Perfiles(
+
+	idPerfiles INT NOT NULL IDENTITY(1,1),
+    nombrePerfiles varchar(40) not null,
+    idPermisos int foreign key references Permisos,	
+    primary key(idPerfiles)
+);
 
 create table Usuario(
 
 	idUsuario INT NOT NULL IDENTITY(1,1),
     usuario varchar(40) not null,
     contraseña varchar(40) not null,
-    primary key(idUsuario),
+    idPerfiles int foreign key references Perfiles,	
+    primary key(idUsuario)
 );
+
+
 create table Ciudad(
 	idCiudad int not null IDENTITY(1,1),
-    nombre varchar(40) not null,
+    nombreCiudad varchar(40) not null,
     primary key(idCiudad)
 );
 
 create table TipoDocumento(
 	idTipoDoc int not null IDENTITY(1,1),
-    nombre varchar(40) not null,
+    tipoDocumento varchar(40) not null,
     primary key(idTipoDoc)
 );
 
 create table EstadoEjemplar(
 	idEstadoEjemplar int not null IDENTITY(1,1),
-    nombre varchar(40) not null,
+    nombreEstadoEjemplar varchar(40) not null,
     primary key(idEstadoEjemplar)
 );
 
@@ -35,19 +53,19 @@ create table Editorial(
 
 create table Autor(
 	idAutor int not null IDENTITY(1,1),
-    nombre varchar(40) not null,
+    nombreAutor varchar(40) not null,
     primary key(idAutor)
 );
 
 create table EstadoDetallePrestamo(
 	idEstadoPrestamo int not null IDENTITY(1,1),
-    nombre varchar(40) not null,
+    nombreEstadoDetallePrestamo varchar(40) not null,
     primary key(idEstadoPrestamo)
 );
 
 create table Genero(
 	idGenero int not null IDENTITY(1,1),
-    nombre varchar(40) not null,
+    nombreGenero varchar(40) not null,
     primary key(idGenero)
 );
 
@@ -56,7 +74,7 @@ create table Genero(
 
 create table EstadoPrestamo(
 	idEstadoPrestamo int not null IDENTITY(1,1),
-    nombre varchar(40) not null,
+    nombreEstadoPrestamo varchar(40) not null,
     primary key(idEstadoPrestamo)
 );
 
@@ -65,7 +83,7 @@ create table EstadoPrestamo(
 
 create table EstadoPedido(
 	idEstadoPedido int not null IDENTITY(1,1),
-    nombre varchar(40) not null,
+    nombreEstadoPedido varchar(40) not null,
     primary key(idEstadoPedido)
 );
 
@@ -86,7 +104,7 @@ create table Pedido(
 create table Barrio(
 	idBarrio int not null IDENTITY(1,1),
 	idCiudad int foreign key references Ciudad,
-    nombre varchar(32) not null,
+    nombreBarrio varchar(32) not null,
     primary key(idBarrio)
 );
 
@@ -123,8 +141,6 @@ create table Socio(
 );
 
 
-
-
 create table Libro(
 	idLibro int not null IDENTITY(1,1),
     titulo varchar(32) not null,
@@ -132,8 +148,8 @@ create table Libro(
     idGenero int foreign key references Genero,
     idAutor int foreign key references  Autor,
     idEditorial int foreign key references Editorial,
-    sector int not null,
-    estante varchar(32) not null,
+    sector varchar(32)not null,
+    estante int not null,
     primary key(idLibro)
 );
 
@@ -178,6 +194,7 @@ create table DetallePrestamo(
 );
 
 
+
 insert INTO Usuario(usuario,contraseña)values('Miguel123','123123');
 insert INTO Usuario(usuario,contraseña)values('Juan321','123123');
 insert INTO Usuario(usuario,contraseña)values('ADMIN','ADMIN');
@@ -186,25 +203,25 @@ insert INTO Usuario(usuario,contraseña)values('perez121','123123');
 insert INTO Usuario(usuario,contraseña)values('Jaime12311','123123');
 insert INTO Usuario(usuario,contraseña)values('Perla131','123123');
 
-insert INTO Genero(nombre)values('Ciencia');
-insert INTO Genero(nombre)values('Aventura');
-insert INTO Genero(nombre)values('Romance');
-insert INTO Genero(nombre)values('Fantacia');
-insert INTO Genero(nombre)values('Misterio');
+insert INTO Genero(nombreGenero)values('Ciencia');
+insert INTO Genero(nombreGenero)values('Aventura');
+insert INTO Genero(nombreGenero)values('Romance');
+insert INTO Genero(nombreGenero)values('Fantacia');
+insert INTO Genero(nombreGenero)values('Misterio');
 
 
-insert INTO Autor(nombre)values('Patrick Rockffuss');
-insert INTO Autor(nombre)values('Stephen King');
-insert INTO Autor(nombre)values('Brandon sanderson');
-insert INTO Autor(nombre)values('Hermann Hesse');
-insert INTO Autor(nombre)values('Gaston Leroux');
-insert INTO Autor(nombre)values('John Katzenbach');
-insert INTO Autor(nombre)values('J. R. R. Tolkien');
-insert INTO Autor(nombre)values('Orson Scott Card');
-insert INTO Autor(nombre)values('James Dashner');
-insert INTO Autor(nombre)values('Pittacus Lore');
-insert INTO Autor(nombre)values('Ray Bradbury');
-insert INTO Autor(nombre)values('George R. R. Martin');
+insert INTO Autor(nombreAutor)values('Patrick Rockffuss');
+insert INTO Autor(nombreAutor)values('Stephen King');
+insert INTO Autor(nombreAutor)values('Brandon sanderson');
+insert INTO Autor(nombreAutor)values('Hermann Hesse');
+insert INTO Autor(nombreAutor)values('Gaston Leroux');
+insert INTO Autor(nombreAutor)values('John Katzenbach');
+insert INTO Autor(nombreAutor)values('J. R. R. Tolkien');
+insert INTO Autor(nombreAutor)values('Orson Scott Card');
+insert INTO Autor(nombreAutor)values('James Dashner');
+insert INTO Autor(nombreAutor)values('Pittacus Lore');
+insert INTO Autor(nombreAutor)values('Ray Bradbury');
+insert INTO Autor(nombreAutor)values('George R. R. Martin');
 
 
 
@@ -220,5 +237,54 @@ insert INTO Editorial(nombreEditorial)values('Norma');
 insert INTO Editorial(nombreEditorial)values('Ediciones B');
 
 
+insert into Libro values('El nombre del viento',2019, 2,1,3,'Oro',3);
 
 
+
+insert into Libro values('asdasd',2012, 2,1,3,'Oro',3);
+
+
+
+insert into Libro values('12312asdasd',2011, 2,1,3,'Oro',3);
+
+
+
+insert into Libro values('asdasdasdaaaaa',2012, 2,1,3,'Oro',3);
+
+
+
+
+use biblioteca;
+create proc listarLibros
+@parametro
+as
+select idLibro as ID,
+titulo as Titulo,
+añoEdicion as Edicion, 
+nombreGenero as Genero, 
+nombreAutor as Autor, 
+nombreEditorial as Editorial,
+sector as Sector,
+estante as Estante
+from Libro
+
+
+inner join Genero on Libro.idGenero = Genero.idGenero
+inner join autor on Libro.idAutor = Autor.idAutor
+inner join editorial on Libro.idEditorial = Editorial.idEditorial
+go
+
+listarLibros
+
+select * from Libro;
+
+
+CREATE proc procedimiento1
+
+@Titulo varchar(50),
+@AñoEdicion varchar(50)
+as
+SELECT titulo, añoEdicion, sector  
+FROM Libro 
+WHERE titulo = @titulo AND añoEdicion = @AñoEdicion;
+go

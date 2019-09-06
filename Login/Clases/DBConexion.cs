@@ -42,6 +42,7 @@ namespace TP_Aplicaciones_Visuales
 
             try
             {
+                
                 cnn.ConnectionString = string_conexion;
                 cnn.Open();
                 //comienzo de transaccion...
@@ -60,7 +61,7 @@ namespace TP_Aplicaciones_Visuales
                     t.Rollback();
                     afectadas = 0;
                 }
-                throw ex;
+                Console.WriteLine(string.Concat("Error en ejecutarSQL: ", ex.Message));
             }
             finally
             {
@@ -79,6 +80,11 @@ namespace TP_Aplicaciones_Visuales
         ///          El error de conexión se produce:
         ///              a) durante la apertura de la conexión
         ///              b) durante la ejecución del comando.
+
+     
+  
+
+
         public DataTable ConsultaSQL(string strSql)
         {
             SqlConnection cnn = new SqlConnection();
@@ -86,7 +92,8 @@ namespace TP_Aplicaciones_Visuales
             DataTable tabla = new DataTable();
 
             try
-            {
+            {   
+                
                 cnn.ConnectionString = string_conexion;
                 cnn.Open();
                 cmd.Connection = cnn;
@@ -97,7 +104,63 @@ namespace TP_Aplicaciones_Visuales
             }
             catch (SqlException ex)
             {
-                throw (ex);
+                Console.WriteLine(string.Concat("Error en la consulta: ", ex.Message));
+                throw ex;
+
+            }
+            finally
+            {
+                this.CloseConnection(cnn);
+            }
+        }
+
+        public void actualizarEliminar(string consultaSQL)
+        {
+            SqlConnection cnn = new SqlConnection();
+            SqlCommand cmd = new SqlCommand();
+
+            try
+            {
+                cnn.ConnectionString = string_conexion;
+                cnn.Open();
+                cmd.Connection = cnn;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = consultaSQL;
+                cmd.ExecuteNonQuery();
+                
+                
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(string.Concat("Error en la eliminacion o actualizacion", ex.Message));
+                throw ex;
+            }
+            finally
+            {
+                this.CloseConnection(cnn);
+            }
+
+
+        }
+        public DataTable storeProcedureSql(string nombreProcedimiento)
+        {
+            SqlConnection cnn = new SqlConnection();
+            SqlCommand cmd = new SqlCommand();
+            DataTable tabla = new DataTable();
+            try
+            {
+                cnn.ConnectionString = string_conexion;
+                cnn.Open();
+                cmd.Connection = cnn;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = nombreProcedimiento;
+                tabla.Load(cmd.ExecuteReader());
+                return tabla;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(string.Concat("Error en la consulta del procedimiento almacenado" , ex.Message));
+                throw ex;
             }
             finally
             {

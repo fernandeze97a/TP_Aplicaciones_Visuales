@@ -15,6 +15,7 @@ namespace TP_Aplicaciones_Visuales
         [STAThread]
         static void Main()
         {
+            Console.WriteLine("HOLAAAA");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmPrincipal());

@@ -37,10 +37,14 @@ namespace TP_Aplicaciones_Visuales.Formularios
 
         private void ConsultarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+       
+        }
+
+        private void LibrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+         
             frmConsultarLibros frmLibros = new frmConsultarLibros();
             frmLibros.ShowDialog();
-            this.Visible = true;
             frmLibros.Dispose();
         }
     }
